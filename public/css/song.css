@@ -1,1 +1,40 @@
 /* song css */
+.song {
+    border-bottom: 1px solid #808080;
+    display: flex;
+    padding: 6px 0;
+  }
+  
+  .song-rank {
+    flex: 0 0 100px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .song-rank-num {
+    font-size: 40px;
+    font-weight: 700;
+  }
+  
+  .song-rank-stream-count {
+    font-size: 10px;
+    margin-top: -12px;
+  }
+  
+  .song-rank-info {
+    flex: 1 0 auto;
+  }
+  .song-rank-info-title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  
+  .song-rank-info-artist {
+    font-style: italic;
+  }
+  
+  .song-rank-info-pub-date {
+    font-size: 12px;
+    text-align: right;
+  }
+  
