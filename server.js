@@ -6,6 +6,7 @@ const app = express();
 
 
 const { top50 } = require('./data/top50');
+const { books } = require('./data/books');
 
 const PORT = process.env.PORT || 8000;
 
@@ -23,6 +24,14 @@ app.get('/top50', (req, res) => {
         myName: 'Jordan',
         top50,
         path: req.originalUrl
+    });
+});
+
+app.get('/books', (req,res) => { 
+    res.status(404);
+    res.render('pages/books', {
+        title: 'Top 25 Books',
+        books
     });
 });
 

@@ -1,0 +1,14 @@
+<% books.forEach(element => { %>
+    <div class='book'>
+
+        <p class="book-rank">
+    <span class="book-id-num"> <%= element.id %></span>
+    <span class="book-id-type"><%= element.type %></span>
+    </p>
+    <div class="book-rank-info">
+    <p class="book-rank-info-title"><%= element.title %></p>
+    <p class="book-rank-info-author">By <%= element.author %></p>
+    <p class="book-rank-info-descript">Released On <%= element.description %></p>
+    </div>
+    </div>
+<% }) %>

@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Roboto+Slab:300&display=swap');
+@import 'reset.css';
+@import 'typography.css';
+@import 'song.css';
+@import 'song-page.css';
+
+
+.book {
+    border-bottom: 1px solid #808080;
+    display: flex;
+    padding: 6px 0;
+  }
+  
+  .book-rank {
+    flex: 0 0 100px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .book-id-num {
+    font-size: 40px;
+    font-weight: 700;
+  }
+  
+  .book-id-type {
+    font-size: 10px;
+    margin-top: -12px;
+  }
+  
+  .book-rank-info {
+    flex: 1 0 auto;
+  }
+  .book-rank-info-title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  
+  .book-rank-info-author {
+    font-style: italic;
+  }
+  
+  .book-rank-info-descript {
+    font-size: 12px;
+    text-align: right;
+    width:40%;
+  }
