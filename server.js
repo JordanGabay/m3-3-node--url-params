@@ -25,6 +25,7 @@ app.get('/top50', (req, res) => {
     });
 });
 
+//Exercise 1.5
 // app.get('/top50popular-artist', (req, res) => {
 //     res.status(404);
 //     res.render('pages/top50', {
@@ -36,18 +37,26 @@ app.get('/top50', (req, res) => {
 // });
 
 app.get('/top50/:song', (req, res) => {
-    res.status(404);
     const {song} = req.params
+    console.log(req.params)
+    if(top50[song - 1]) {
+        res.status(200);
     console.log(top50[song - 1].title)
     console.log(top50[song - 1].artist)
     res.render('pages/singlesong', {
-        title: 'Song #',
+        title: 'Song #' + top50[song - 1].rank,
         myName: 'Jordan',
         song: top50[song - 1].title,
         artist: top50[song - 1].artist,
         streams: top50[song - 1].streams,
+    }); 
+    } else {
+        res.status(404);
+    res.render('pages/fourOhFour', {
+        title: 'I got nothing',
         path: req.originalUrl
     });
+    }
 });
 
 
