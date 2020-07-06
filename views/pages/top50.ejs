@@ -1,0 +1,13 @@
+<%- include( '../partials/header') %>
+<div>
+    <h2 class='title'></h2>
+    <ol>
+    <% top50.forEach(element => { %>
+        <li>Number <%= element.rank%>
+        <%= element.title %>
+        </li> 
+    <% }) %>
+     </ol>
+    <!-- <p class='subtitle'> <%= path %></p> -->
+</div>
+<%- include( '../partials/footer') %>
