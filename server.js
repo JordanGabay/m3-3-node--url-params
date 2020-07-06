@@ -4,6 +4,7 @@ const express = require('express');
 const morgan = require('morgan');
 const app = express();
 
+
 const { top50 } = require('./data/top50');
 
 const PORT = process.env.PORT || 8000;
@@ -36,28 +37,51 @@ app.get('/top50', (req, res) => {
 //     });
 // });
 
+// app.get('/top50/:song', (req, res) => {
+//     const {song} = req.params
+//     if(top50[song - 1]) {
+//         res.status(200);
+//         console.log(top50[song - 1].title)
+//         console.log(top50[song - 1].artist)
+//         res.render('pages/singlesong', {
+//             title: 'Song #' + top50[song - 1].rank,
+//             song: top50[song - 1].title,
+//             artist: top50[song - 1].artist,
+//             streams: top50[song - 1].streams,
+//             // id: Number(id)
+//         }); 
+//     } else {
+//         res.status(404);
+//         res.render('pages/fourOhFour', {
+//             title: 'I got nothing',
+//             path: req.originalUrl
+//         });
+//     }
+// });
+
 app.get('/top50/:song', (req, res) => {
-    const {song} = req.params
-    console.log(req.params)
-    if(top50[song - 1]) {
+    const { song } = req.params
+    // console.log(song)
+    const lastSong = top50[song - 1]
+    const { title, artist, rank, streams } = lastSong
+    if(lastSong) {
         res.status(200);
-    console.log(top50[song - 1].title)
-    console.log(top50[song - 1].artist)
-    res.render('pages/singlesong', {
-        title: 'Song #' + top50[song - 1].rank,
-        myName: 'Jordan',
-        song: top50[song - 1].title,
-        artist: top50[song - 1].artist,
-        streams: top50[song - 1].streams,
-    }); 
+        // console.log(title, artist)
+        res.render('pages/singlesong', {
+            title: `Song #${rank}`,
+            song: title,
+            artist,
+            streams,
+            id: rank 
+        });
     } else {
         res.status(404);
-    res.render('pages/fourOhFour', {
-        title: 'I got nothing',
-        path: req.originalUrl
-    });
+        res.render('pages/fourOhFour', {
+            title: 'I got nothing',
+            path: req.originalUrl
+        });
     }
-});
+  });
 
 
 // handle 404s
